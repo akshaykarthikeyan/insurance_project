@@ -375,10 +375,14 @@ class _SettingState extends State<Setting> {
                                                               !_isObscure;
                                                         });
                                                       },
-                                                      child: Icon(_isObscure
-                                                          ? Icons.visibility
-                                                          : Icons
-                                                              .visibility_off),
+                                                      child: Icon(
+                                                        _isObscure
+                                                            ? Icons.visibility
+                                                            : Icons
+                                                                .visibility_off,
+                                                        color: const Color(
+                                                            0xffA8A8A8),
+                                                      ),
                                                     ),
                                                     counterStyle:
                                                         GoogleFonts.varelaRound(
@@ -440,8 +444,23 @@ class _SettingState extends State<Setting> {
                                                 keyboardType: TextInputType
                                                     .visiblePassword,
                                                 obscureText: true,
-                                                obscuringCharacter: "*",
                                                 decoration: InputDecoration(
+                                                    suffixIcon: GestureDetector(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          _isObscure =
+                                                              !_isObscure;
+                                                        });
+                                                      },
+                                                      child: Icon(
+                                                        _isObscure
+                                                            ? Icons.visibility
+                                                            : Icons
+                                                                .visibility_off,
+                                                        color: const Color(
+                                                            0xffA8A8A8),
+                                                      ),
+                                                    ),
                                                     fillColor:
                                                         const Color(0xffECF4FF),
                                                     filled: true,
@@ -462,7 +481,7 @@ class _SettingState extends State<Setting> {
                                                                 0xffA8A8A8))),
                                                 validator: (String? value) {
                                                   if (value!.isEmpty) {
-                                                    return 'Phone number (+xx xxx-xxx-xxx)';
+                                                    return 'Confirm Password';
                                                   }
                                                   return null;
                                                 },
