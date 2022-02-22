@@ -446,7 +446,7 @@ class _SettingState extends State<Setting> {
                                                 obscureText: true,
                                                 decoration: InputDecoration(
                                                     suffixIcon: GestureDetector(
-                                                      onTap: () {
+                                                      onTap: () async {
                                                         setState(() {
                                                           _isObscure =
                                                               !_isObscure;
