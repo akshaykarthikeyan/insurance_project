@@ -124,26 +124,48 @@ class _AlertDialoggState extends State<AlertDialogg> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      CheckboxGroup(
-                        labels: const [
-                          '00',
-                          '35',
+                      Column(
+                        children: [
+                          CheckboxGroup(
+                            activeColor: Color(0xff3AD29F),
+                            labels: const ['00'],
+                            checked: _checked,
+                            onChange: (bool isChecked, String label,
+                                    int index) =>
+                                print(
+                                    "isChecked: $isChecked   label: $label  index: $index"),
+                            onSelected: (final selected) => setState(() {
+                              if (selected.length > 1) {
+                                selected.removeAt(0);
+                                print('selected length  ${selected.length}');
+                              } else {
+                                print("only one");
+                              }
+                              _checked = selected;
+                            }),
+                          ),
+                          CheckboxGroup(
+                            activeColor: Color(0xff3AD29F),
+                            labels: const ['35'],
+                            checked: _checked,
+                            onChange: (bool isChecked, String label,
+                                    int index) =>
+                                print(
+                                    "isChecked: $isChecked   label: $label  index: $index"),
+                            onSelected: (final selected) => setState(() {
+                              if (selected.length > 1) {
+                                selected.removeAt(0);
+                                print('selected length  ${selected.length}');
+                              } else {
+                                print("only one");
+                              }
+                              _checked = selected;
+                            }),
+                          ),
                         ],
-                        checked: _checked,
-                        onChange: (bool isChecked, String label, int index) =>
-                            print(
-                                "isChecked: $isChecked   label: $label  index: $index"),
-                        onSelected: (final selected) => setState(() {
-                          if (selected.length > 1) {
-                            selected.removeAt(0);
-                            print('selected length  ${selected.length}');
-                          } else {
-                            print("only one");
-                          }
-                          _checked = selected;
-                        }),
                       ),
                       CheckboxGroup(
+                        activeColor: Color(0xff3AD29F),
                         labels: const [
                           '20',
                           '45',
@@ -163,6 +185,7 @@ class _AlertDialoggState extends State<AlertDialogg> {
                         }),
                       ),
                       CheckboxGroup(
+                        activeColor: Color(0xff3AD29F),
                         labels: const [
                           '25',
                           '50',
