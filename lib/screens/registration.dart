@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insurance_project/screens/account.dart';
-import 'package:insurance_project/screens/setting.dart';
+import 'package:insurance_project/screens/form.dart';
 import 'package:page_transition/page_transition.dart';
 
 class Registration extends StatefulWidget {
@@ -40,7 +40,7 @@ class _RegistrationState extends State<Registration> {
                   context,
                   PageTransition(
                       type: PageTransitionType.leftToRightWithFade,
-                      child: Setting()));
+                      child: FormPage()));
             },
             child: const Icon(Icons.arrow_back_rounded, color: Colors.black),
           ),
@@ -114,18 +114,6 @@ class _RegistrationState extends State<Registration> {
                             padding: const EdgeInsets.all(12.0),
                             child: TextButton(
                                 onPressed: () {
-                                  print(it1);
-                                  print(dateinput);
-                                  ft1.clear();
-                                  dateinput.clear();
-                                  setState(() {
-                                    ft1.text.isEmpty
-                                        ? _validate = true
-                                        : _validate = false;
-                                    dateinput.text.isEmpty
-                                        ? _validate = true
-                                        : _validate = false;
-                                  });
                                   Navigator.push(
                                       context,
                                       PageTransition(

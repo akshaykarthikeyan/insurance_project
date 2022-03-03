@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insurance_project/screens/verification.dart';
 import 'package:page_transition/page_transition.dart';
@@ -13,6 +14,7 @@ class Create extends StatefulWidget {
 }
 
 class _CreateState extends State<Create> {
+  late String phone;
   TextEditingController dateinput = TextEditingController();
   bool _validate = false;
   var ft1 = TextEditingController();
@@ -36,6 +38,10 @@ class _CreateState extends State<Create> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
@@ -77,7 +83,7 @@ class _CreateState extends State<Create> {
                               Text('Create Account',
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 25.0,
+                                      fontSize: 28.0,
                                       color: const Color(0xff454D5D))),
                               const SizedBox(
                                 width: double.infinity,
@@ -117,7 +123,7 @@ class _CreateState extends State<Create> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: screenHeight / 90,
+                              height: screenHeight / 80,
                             ),
                             SizedBox(
                               width: screenWidth / 1.2,
@@ -128,46 +134,62 @@ class _CreateState extends State<Create> {
                                       children: [
                                         Expanded(
                                           flex: 9,
-                                          child: TextFormField(
-                                            style: GoogleFonts.poppins(
-                                                fontStyle: FontStyle.normal,
-                                                fontSize: 20.0,
-                                                color: Colors.black),
-                                            controller: ft1,
-                                            onChanged: (text) {
-                                              it1 = text;
-                                            },
-                                            keyboardType: TextInputType.phone,
-                                            decoration: InputDecoration(
-                                                border: InputBorder.none,
-                                                isDense: true,
-                                                prefixIcon: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      11.0),
-                                                  child: Text(
-                                                    '+91',
-                                                    style:
-                                                        GoogleFonts.varelaRound(
-                                                            fontStyle: FontStyle
-                                                                .normal,
-                                                            fontSize: 20.0,
-                                                            color:
-                                                                Colors.black),
+                                          child: Form(
+                                            autovalidateMode:
+                                                AutovalidateMode.disabled,
+                                            child: TextFormField(
+                                              inputFormatters: [
+                                                LengthLimitingTextInputFormatter(
+                                                    10),
+                                              ],
+                                              style: GoogleFonts.poppins(
+                                                  fontStyle: FontStyle.normal,
+                                                  fontSize: 20.0,
+                                                  color: Colors.black),
+                                              controller: ft1,
+                                              onChanged: (text) {
+                                                it1 = text;
+                                              },
+                                              keyboardType: TextInputType.phone,
+                                              decoration: InputDecoration(
+                                                  border: InputBorder.none,
+                                                  isDense: true,
+                                                  prefixIcon: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            11.0),
+                                                    child: Text(
+                                                      '+91',
+                                                      style: GoogleFonts
+                                                          .varelaRound(
+                                                              fontStyle:
+                                                                  FontStyle
+                                                                      .normal,
+                                                              fontSize: 20.0,
+                                                              color:
+                                                                  Colors.black),
+                                                    ),
                                                   ),
-                                                ),
-                                                hintText: ' Phone number',
-                                                counterStyle:
-                                                    GoogleFonts.poppins(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontSize: 15.0,
-                                                        color: Colors.white)),
-                                            validator: (String? value) {
-                                              if (value!.isEmpty) {
-                                                return 'Phone number (+x xxx-xxx-xxxx)';
-                                              }
-                                              return null;
-                                            },
+                                                  hintText: ' Phone number',
+                                                  hintStyle: const TextStyle(
+                                                      fontSize: 20.0,
+                                                      color: Color(0xff454D5D)),
+                                                  counterStyle:
+                                                      GoogleFonts.varelaRound(
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          fontSize: 20.0,
+                                                          color: Colors.white)),
+                                              validator: (String? value) {
+                                                if (value!.length != 10) {
+                                                  return 'Please enter 10 digit of your mobile number';
+                                                }
+                                                return null;
+                                              },
+                                              onSaved: (String? value) {
+                                                phone = value!;
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Expanded(
@@ -227,7 +249,7 @@ class _CreateState extends State<Create> {
                                     ),
                                     child: Text('Continue',
                                         style: GoogleFonts.poppins(
-                                            fontStyle: FontStyle.normal,
+                                            fontWeight: FontWeight.w600,
                                             fontSize: 15.0,
                                             color: Colors.white))),
                               ),

@@ -37,6 +37,15 @@ dependencies:
   otp_text_field: ^1.1.2
   google_fonts: ^2.3.1
   page_transition: ^2.0.5
+  page_view_indicators: ^2.0.0
+  splash_screen_view: ^3.0.0
+  transition: ^2.0.2
+  smooth_page_indicator: ^1.0.0+2
+  flutter_svg: ^1.0.3
+  custom_radio_grouped_button: ^2.1.1
+  intl: ^0.17.0
+  grouped_buttons: ^1.0.4
+
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +69,35 @@ flutter:
     - assets/images/Group 1382@3x.png
     - assets/images/Group 1383@3x.png
     - assets/images/shield-fill-check@3x.png
+    - assets/images/girlincar.png
+    - assets/images/a0e4e70155ee88b7d0da1d70d91de6bf.svg
+    - assets/images/Group 1545@3x.png
+    - assets/images/Group 1546@3x.png
+    - assets/images/Group 1547@3x.png
+    - assets/images/Group 1548@3x.png
+    - assets/images/Group 1549@3x.png
+    - assets/images/Group 1550@3x.png
+    - assets/images/Group 1551@3x.png
+    - assets/images/Group 1552@3x.png
+    - assets/images/Group 1553@3x.png
+    - assets/images/Group 1554@3x.png
+    - assets/images/Group 1555@3x.png
+    - assets/images/Group 1556@3x.png
+    - assets/images/Group 1395@3x.png
+    - assets/images/Group 1396@3x.png
+    - assets/images/Mask Group 1@3x.png
+    - assets/images/Group 1391@3x.png
+    - assets/images/Iconly-Bold-3 User@3x.png
+    - assets/images/Group 1392@3x.png
+    - assets/images/Group 1471@3x.png
+    - assets/images/Group 1478@3x.png
+    - assets/images/Group 961@3x.png
+    - assets/images/Group 711@3x.png
+    - assets/images/Group 1379@3x.png
+    - assets/images/Group 1393@3x.png
+    - assets/images/baseline-local_car_wash-24px@3x.png
+    - assets/images/Group 1565@3x.png
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

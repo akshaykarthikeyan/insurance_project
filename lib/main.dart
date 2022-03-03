@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:insurance_project/screens/create.dart';
+import 'package:flutter/services.dart';
+import 'package:insurance_project/screens/motor.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,10 +11,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bill',
-      home: Create(),
+      home: Motor(),
     );
   }
 }

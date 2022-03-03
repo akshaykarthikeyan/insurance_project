@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insurance_project/screens/create.dart';
-import 'package:insurance_project/screens/setting.dart';
+import 'package:insurance_project/screens/form.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:page_transition/page_transition.dart';
@@ -16,7 +16,6 @@ class Verification extends StatefulWidget {
 }
 
 class _VerificationState extends State<Verification> {
-  TextEditingController dateinput = TextEditingController();
   bool _validate = false;
   var ft1 = TextEditingController();
   var ft2 = TextEditingController();
@@ -26,6 +25,7 @@ class _VerificationState extends State<Verification> {
   @override
   void dispose() {
     ft1.dispose();
+    super.dispose();
   }
 
   OtpFieldController otpController = OtpFieldController();
@@ -82,7 +82,7 @@ class _VerificationState extends State<Verification> {
                               Text('Verification',
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 25.0,
+                                      fontSize: 28.0,
                                       color: const Color(0xff454D5D))),
                               const SizedBox(
                                 width: double.infinity,
@@ -162,14 +162,9 @@ class _VerificationState extends State<Verification> {
                               child: TextButton(
                                   onPressed: () {
                                     print(it1);
-                                    print(dateinput);
                                     ft1.clear();
-                                    dateinput.clear();
                                     setState(() {
                                       ft1.text.isEmpty
-                                          ? _validate = true
-                                          : _validate = false;
-                                      dateinput.text.isEmpty
                                           ? _validate = true
                                           : _validate = false;
                                     });
@@ -178,14 +173,14 @@ class _VerificationState extends State<Verification> {
                                         PageTransition(
                                             type: PageTransitionType
                                                 .rightToLeftWithFade,
-                                            child: const Setting()));
+                                            child: const FormPage()));
                                   },
                                   style: ElevatedButton.styleFrom(
                                     primary: const Color(0xff3AD29F),
                                   ),
                                   child: Text('Continue',
                                       style: GoogleFonts.poppins(
-                                          fontStyle: FontStyle.normal,
+                                          fontWeight: FontWeight.w600,
                                           fontSize: 15.0,
                                           color: Colors.white))),
                             ),
@@ -199,11 +194,13 @@ class _VerificationState extends State<Verification> {
                     SizedBox(
                       height: screenHeight / 44,
                     ),
-                    Text('Re-send Code',
-                        style: GoogleFonts.poppins(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 15.0,
-                            color: const Color(0xff30C7B8))),
+                    InkWell(
+                      child: Text('Re-Send Code',
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.normal,
+                              fontSize: 12.0,
+                              color: const Color(0xff30C7B8))),
+                    ),
                     const SizedBox(height: 60.0),
                   ],
                 ),
